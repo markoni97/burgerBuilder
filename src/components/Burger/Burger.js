@@ -2,6 +2,11 @@ import React from 'react';
 import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
+/*Importing a higher order component that injects the props 
+that only the components loaded through router have. For example: 'props.match.params.id' 
+Don't really need it now*/
+import {withRouter} from 'react-router-dom';
+
 const burger = (props) => {
 /* Object.keys() returns a list of all the key properties inside the ingredients object 
 (which is recived from BurgerBilder). Then I am maping all the values from the returned list. Inside the first map,
@@ -33,4 +38,4 @@ with the type of 'cheese' two times.
     );
 }
 
-export default burger;
+export default withRouter(burger);

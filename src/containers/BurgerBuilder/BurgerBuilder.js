@@ -103,33 +103,36 @@ class BurgerBuilder extends Component{
     purchaseContinueHandler = () => {
         //.json is specific to firebase. Its diferent for custom database
         //In a real app you wouldnt send 'price' because the youser could manipulate it
-        this.setState({loading: true});
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Marko',
-                address:{
-                    street: 'test',
-                    zipcode: '112209',
-                    country: 'Serbia'
-                },
-                email: 'test@test.com',
-                deliveryMethod: 'fastest'
-            }
-        }
-        axios.post('/orders.json', order).then(response => {
-            this.setState({
-                loading: false,
-                purchasing: false
-            });
 
-        }).catch(error => {
-            this.setState({
-                loading: false,
-                purchasing: false
-            });
-        });
+        // this.setState({loading: true});
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Marko',
+        //         address:{
+        //             street: 'test',
+        //             zipcode: '112209',
+        //             country: 'Serbia'
+        //         },
+        //         email: 'test@test.com',
+        //         deliveryMethod: 'fastest'
+        //     }
+        // }
+        // axios.post('/orders.json', order).then(response => {
+        //     this.setState({
+        //         loading: false,
+        //         purchasing: false
+        //     });
+
+        // }).catch(error => {
+        //     this.setState({
+        //         loading: false,
+        //         purchasing: false
+        //     });
+        // });
+
+        this.props.history.push('/checkout');
     }
 
     render() {
